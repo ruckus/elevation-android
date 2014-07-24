@@ -18,5 +18,7 @@ to know my current elevation.
 ## Screenshots
 
 ![1](http://codycaughlan.s3.amazonaws.com/images/elevation-app/android/1.png)
+
 ![2](http://codycaughlan.s3.amazonaws.com/images/elevation-app/android/2.png)
+
 ![3](http://codycaughlan.s3.amazonaws.com/images/elevation-app/android/3.png)
