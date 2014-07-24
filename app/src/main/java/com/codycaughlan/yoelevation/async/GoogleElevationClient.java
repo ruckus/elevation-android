@@ -31,7 +31,7 @@ public class GoogleElevationClient {
         void getElevationForLatLng(@QueryMap Map<String, String> options, Callback<ElevationResults> cb);
     }
 
-    public void fetchElevation(double lat, double lng) {
+    public void fetchElevation(final String requestId, double lat, double lng) {
         RestAdapter restAdapter = new RestAdapter.Builder()
                 .setLogLevel(RestAdapter.LogLevel.FULL)
                 .setEndpoint(GOOGLE_ELEVATION_ENDPOINT)
@@ -43,7 +43,7 @@ public class GoogleElevationClient {
             @Override
             public void success(ElevationResults elevateResult, Response response) {
                 //Log.i("Barney", "Producing!!!: " + elevateResult.toString());
-                BusProvider.getInstance().post(produceElevateEvent(elevateResult));
+                BusProvider.getInstance().post(produceElevateEvent(requestId, elevateResult));
             }
 
             @Override
@@ -60,7 +60,7 @@ public class GoogleElevationClient {
     }
 
     @Produce
-    public ElevateEvent produceElevateEvent(ElevationResults result){
-        return new ElevateEvent(result);
+    public ElevateEvent produceElevateEvent(String requestId, ElevationResults result){
+        return new ElevateEvent(requestId, result);
     }
 }

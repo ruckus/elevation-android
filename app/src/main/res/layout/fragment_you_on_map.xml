@@ -4,11 +4,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     >
-    <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+    <fragment
         android:id="@+id/map"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:name="com.google.android.gms.maps.MapFragment"/>
+        android:name="com.google.android.gms.maps.SupportMapFragment"/>
 
     <TextView
         android:id="@+id/info_label"
@@ -20,5 +20,5 @@
         android:padding="20dp"
         android:textColor="@color/info_label_text_color"
         android:background="@drawable/info_rect"
-    />
+        />
 </FrameLayout>

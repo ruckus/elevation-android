@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/choose_source_location"
+            android:text="Choose Source Location"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_gravity="center_horizontal|top"
+            android:layout_marginTop="80dp"
+            android:background="@drawable/search_places_button_selector"
+            android:padding="6dp"
+        />
+
+        <Button
+            android:id="@+id/choose_destination_location"
+            android:text="Choose Destination Location"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_gravity="center_horizontal|top"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/search_places_button_selector"
+            android:padding="6dp"
+        />
+
+        <TextView
+            android:id="@+id/header_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|top"
+            android:layout_marginTop="20dp"
+            android:text="Gain/Loss is"
+            android:textSize="18sp"
+            android:visibility="invisible"
+         />
+
+        <TextView
+            android:id="@+id/gain_loss"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|top"
+            android:layout_marginTop="20dp"
+            android:visibility="invisible"
+            android:textAppearance="@style/gain_loss_value"
+            />
+
+        <TextView
+            android:id="@+id/summary_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|top"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:textSize="18sp"
+            android:visibility="invisible"
+        />
+
+
+    </LinearLayout>
+
+</ScrollView>
