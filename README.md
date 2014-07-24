@@ -15,6 +15,10 @@ and [Otto](https://github.com/square/otto) Event Bus.
 Also because I was mountain biking recently and wanted
 to know my current elevation.
 
+## Download from Google Play
+
+[Link to Google Play](https://play.google.com/store/apps/details?id=com.codycaughlan.yoelevation)
+
 ## Screenshots
 
 ![1](http://codycaughlan.s3.amazonaws.com/images/elevation-app/android/1.png)
