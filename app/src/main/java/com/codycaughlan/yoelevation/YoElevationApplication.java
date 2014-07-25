@@ -6,8 +6,8 @@ public class YoElevationApplication extends Application {
 
     public static final boolean DEBUG_HTTP = false;
 
-    public static final String GOOGLE_PLACES_API_KEY = "AIzaSyCqBwAq8hPb29xrd4nKe35F2YLfq46pknM";
-    public static final String GOOGLE_ELEVATION_API_KEY = "AIzaSyCqBwAq8hPb29xrd4nKe35F2YLfq46pknM";
+    public static final String GOOGLE_PLACES_API_KEY = "";
+    public static final String GOOGLE_ELEVATION_API_KEY = "";
 
 
     @Override
