@@ -2,6 +2,7 @@ package com.codycaughlan.yoelevation.async;
 
 import android.util.Log;
 
+import com.codycaughlan.yoelevation.YoElevationApplication;
 import com.codycaughlan.yoelevation.bus.BusProvider;
 import com.codycaughlan.yoelevation.event.ElevateEvent;
 import com.codycaughlan.yoelevation.model.ElevationResults;
@@ -19,21 +20,17 @@ import retrofit.http.QueryMap;
 
 public class GoogleElevationClient {
 
-    private static final String GOOGLE_ELEVATION_ENDPOINT =
-            //"http://codycaughlan.com";
-            "https://maps.googleapis.com";
-    private static final String GOOGLE_ELEVATION_API_KEY = "AIzaSyCSW_JEqONZdwkAbYo9oFUpPcXPpCEN7HQ";
+    private static final String GOOGLE_ELEVATION_ENDPOINT = "https://maps.googleapis.com";
 
     interface GoogleElevationApiClient {
-        //urlWithValues = "https://maps.googleapis.com/maps/api/elevation/json?locations=#{lat},#{lng}&key=#{GoogleConfig::ELEVATION_API_KEY}"
         @GET("/maps/api/elevation/json")
-        //@GET("/elevation.json")
         void getElevationForLatLng(@QueryMap Map<String, String> options, Callback<ElevationResults> cb);
     }
 
     public void fetchElevation(final String requestId, double lat, double lng) {
+        RestAdapter.LogLevel level = YoElevationApplication.DEBUG_HTTP ? RestAdapter.LogLevel.FULL : RestAdapter.LogLevel.NONE;
         RestAdapter restAdapter = new RestAdapter.Builder()
-                .setLogLevel(RestAdapter.LogLevel.FULL)
+                .setLogLevel(level)
                 .setEndpoint(GOOGLE_ELEVATION_ENDPOINT)
                 .build();
 
@@ -42,7 +39,6 @@ public class GoogleElevationClient {
         Callback<ElevationResults> callback = new Callback<ElevationResults>() {
             @Override
             public void success(ElevationResults elevateResult, Response response) {
-                //Log.i("Barney", "Producing!!!: " + elevateResult.toString());
                 BusProvider.getInstance().post(produceElevateEvent(requestId, elevateResult));
             }
 
@@ -55,7 +51,7 @@ public class GoogleElevationClient {
         final Map<String, String> options = new HashMap<String,String>();
         final String latLng = String.format("%f,%f", lat, lng);
         options.put("locations", latLng);
-        //options.put("key", GOOGLE_ELEVATION_API_KEY);
+        options.put("key", YoElevationApplication.GOOGLE_ELEVATION_API_KEY);
         client.getElevationForLatLng(options, callback);
     }
 
